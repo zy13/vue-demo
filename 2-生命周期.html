@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    // 注册组件 1.全局 2.局部
+    // 注意：1.data 2.只能有一个根节点
+
+    const Bar = {
+      template: '<div>Bar</div>'
+    }
+
+    const Foo = {
+      // 局部注册
+      components: {
+        Bar
+      },
+      data() {
+        return {
+          count: 1
+        }
+      },
+
+      // 创建
+      beforeCreate() {
+        console.log('beforeCreate')
+      },
+      created() {
+        // 数据初始化完成，事件注入完成等
+        // 在此处执行异步请求，获取数据
+        console.log('created')
+      },
+
+      // 挂载
+      beforeMount() {
+        console.log('beforeMount')
+      },
+      mounted() {
+        // 模板渲染完成等
+        // 直接用created阶段获取的数据
+        // 若是在此阶段获取异步请求数据，dom会因为数据变化而发生重绘，消耗渲染性能
+        console.log('mounted')
+      },
+
+      // 更新
+      beforeUpdate() {
+        console.log('beforeUpdate')
+      },
+      updated() {
+        console.log('updated')
+      },
+
+      // 销毁
+      beforeDestroy() {
+        console.log('beforeDestroy')
+      },
+      destroyed() {
+        console.log('destroyed')
+      },
+
+
+      template: `<div>
+        {{count}}
+        </div>`
+    }
+
+    // 全局注册：组件要注册之后才可以调用
+    Vue.component('Foo', Foo)
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello'
+      },
+
+      // 只能有一个根节点
+      template: `<div>
+        <Foo></Foo>
+      </div>`
+    })
+
+    window.app = app
+  </script>
+</body>
+
+</html>
