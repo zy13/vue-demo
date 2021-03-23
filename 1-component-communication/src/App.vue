@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home: (1) props/$emit</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About：(2) ref/$refs</router-link> |
+      <router-link to="/parent">parent：(3) $parent/$child</router-link>
     </div>
     <router-view></router-view>
   </div>
