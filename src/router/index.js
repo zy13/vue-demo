@@ -6,7 +6,6 @@ const Login = () => import('../views/Login.vue')
 
 Vue.use(VueRouter)
 
-// name是命名路由
 const routes = [
   {
     path: '/',

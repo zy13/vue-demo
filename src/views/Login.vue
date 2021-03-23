@@ -5,6 +5,9 @@
     <router-link :to="{name: 'user'}">
       <button>to user</button>
     </router-link>
+    <router-link :to="{name: 'home'}">
+      <button>login</button>
+    </router-link>
   </div>
 </template>
 
