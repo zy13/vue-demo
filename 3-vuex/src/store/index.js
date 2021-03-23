@@ -10,7 +10,8 @@ const strore = new Vuex.Store({
     user: {
       age: 18,
       name: 'xiaohei'
-    }
+    },
+    totken: ''
   }
 })
 

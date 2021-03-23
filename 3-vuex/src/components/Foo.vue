@@ -1,19 +1,38 @@
 <template>
   <div>
     <h2>Foo</h2>
-    <div>名字：{{username}} 年龄：{{age}}</div>
+    <div>名字：{{user.name}} 年龄：{{user.age}}</div>
+    <button @click="handleChange">change</button>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      username: this.$store.state.user.name,
-      age: this.$store.state.user.age,
+      // string
+      // name: this.$store.state.user.name
+      // object
+      // user: this.$store.state.user
     }
   },
   mounted() {
     console.log(this.$store.state);
+  },
+  computed: {
+    // state属于全局计算属性，在Bar组件改变它时，Foo组件可以共享改变后的值
+    ...mapState(['user','token']),
+    // user() {
+    //   return this.$store.state.user
+    // },
+    // token() {
+    //   return this.$store.state.user.token
+    // }
+  },
+  methods: {
+    handleChange() {
+      this.$store.state.user.name = 'xiaohong'
+    }
   },
 }
 </script>
