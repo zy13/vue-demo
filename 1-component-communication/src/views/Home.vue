@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <h1>home page</h1>
+    <div>get emit data from child: <span v-show="childData">{{childData}}</span></div>
+    <br>
+    <HomeChild title="home" @getChildData="getChildData"></HomeChild>    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import HomeChild from '@/components/HomeChild.vue'
 
 export default {
   name: 'Home',
   components: {
-    // HelloWorld
-  }
+    HomeChild
+  },
+  data() {
+    return {
+      childData: ''
+    }
+  },
+  methods: {
+    getChildData(txt) {
+      this.childData = txt
+      console.log(txt);
+    }
+  },
 }
 </script>
