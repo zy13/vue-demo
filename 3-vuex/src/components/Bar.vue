@@ -2,6 +2,7 @@
   <div>
     <h2>Bar</h2>
     <div>姓名：{{user.name}} 年龄: {{user.age}}</div>
+    <div>{{}}</div>
     <button @click="handleChange">change</button>
   </div>
 </template>
@@ -16,11 +17,18 @@ export default {
   },
   methods: {
     handleChange() {
-      this.$store.state.user.age = 30
+      this.$store.state.user.age++
     }
   },
   computed: {
     ...mapState(['user', 'token'])
-  }
+  },
+  mounted () {
+    console.log(this.$store.getters);
+    // 1、通过属性方式访问
+    console.log(this.$store.getters.tenYearsOld);
+    // 2、通过方法访问
+    // 3、mapGetters辅助函数, 与mapState用法一样
+  },
 }
 </script>

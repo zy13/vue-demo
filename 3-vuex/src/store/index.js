@@ -12,6 +12,12 @@ const strore = new Vuex.Store({
       name: 'xiaohei'
     },
     totken: ''
+  },
+  // 全局的计算属性，依赖state属性
+  getters: {
+    tenYearsOld(state) {
+      return state.user.age + 10
+    }
   }
 })
 
