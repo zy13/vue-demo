@@ -6,6 +6,7 @@ Vue.use(Vuex) // 注册vuex
 console.log(Vuex); // 一个对象 Store是一个类/构造函数
 
 const strore = new Vuex.Store({
+  // 全局状态
   state: {
     user: {
       age: 18,
@@ -18,6 +19,21 @@ const strore = new Vuex.Store({
     tenYearsOld(state) {
       return state.user.age + 10
     }
+  },
+  // 提交状态：类似自定义的事件类型
+  mutations: {
+    // payload是载荷：传入的额外参数
+    changeName(state, payload) {
+      state.user.name = payload
+    },
+    changeAge(state, payload) {
+      state.user.age = payload.age
+      // 同时多个组件触发时会有问题
+      // setTimeout(() => {
+      //   state.user.age = payload.age
+      // }, 1000);
+    },
+
   }
 })
 
