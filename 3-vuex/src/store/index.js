@@ -33,7 +33,15 @@ const strore = new Vuex.Store({
       //   state.user.age = payload.age
       // }, 1000);
     },
-
+  },
+  actions: {
+    // 异步解决方案
+    changeName({commit}, payload) {
+      setTimeout(() => {
+        // 去请求后端接口
+        commit('changeName', payload)
+      }, 1000);
+    }
   }
 })
 

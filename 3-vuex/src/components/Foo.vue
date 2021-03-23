@@ -5,10 +5,12 @@
     <div>{{tenYearsOld}}</div>
     <button @click="handleChange">change</button>
     <button @click="changeAge({age: 80})">changeAge</button>
+    <button @click="handleFetchData">Fetch Data</button>
+    <button @click="changeName('zy')">handleChangeName</button>
   </div>
 </template>
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -38,8 +40,14 @@ export default {
     ...mapMutations([
       'changeAge'
     ]),
+    ...mapActions([
+      'changeName'
+    ]),
     handleChange() {
       this.$store.state.user.name = 'xiaohong'
+    },
+    handleFetchData() {
+      this.$store.dispatch('changeName', 'zy')
     }
   },
 }
