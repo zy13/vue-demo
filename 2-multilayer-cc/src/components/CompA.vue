@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>CompA</h2>
-    <comp-b title="this is a message from comA"></comp-b>
+    <comp-b title="this is a message from comA" @a="handleA" @b="handleB" @click="handleClick"></comp-b>
   </div>
 </template>
 <script>
@@ -14,7 +14,18 @@ export default {
     return {
       compATitle: 'foo........'
     }
-  }
+  },
+  methods: {
+    handleA() {
+
+    },
+    handleB() {
+
+    },
+    handleClick() {
+      
+    }
+  },
 }
 </script>
 <style lang="">
