@@ -1,8 +1,12 @@
 {
   "name": "vue-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "官网-文档：https://vuejs.org/ 中文网-文档：https://cn.vuejs.org/ ## vue语法基础",
   "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "vue": "^2.6.12"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
