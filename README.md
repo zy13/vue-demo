@@ -1,5 +1,3 @@
-
-
 官网-文档：https://vuejs.org/
 中文网-文档：https://cn.vuejs.org/
 ## vue语法基础
@@ -67,3 +65,27 @@ Vue Test Utils 是 Vue.js 官方的单元测试实用工具库。
 ## todo-list案例
 
 基于单文件组件实现增删改查功能
+# 1-vue-router
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
